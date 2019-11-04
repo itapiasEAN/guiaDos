@@ -128,6 +128,7 @@ function leerLocalStorage() {
 
 function eliminarProductoLocalStorage(producto) {
   let productosLS;
+
   // obtenemos el arreglo de productos
   productosLS = obtenerProductosLocalStorage();
   // Iteramos comparando el ID del producto borrado con los del Local Storage
