@@ -1,6 +1,6 @@
 // variables
 const carrito = document.getElementById("carrito");
-let productos = document.getElementById("lista-productos");
+const productos = document.getElementById("lista-productos");
 const listaProductos = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 // Listeners
@@ -128,6 +128,7 @@ function leerLocalStorage() {
 
 function eliminarProductoLocalStorage(producto) {
   let productosLS;
+
   // obtenemos el arreglo de productos
   productosLS = obtenerProductosLocalStorage();
   // Iteramos comparando el ID del producto borrado con los del Local Storage
