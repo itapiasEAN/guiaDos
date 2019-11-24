@@ -151,7 +151,7 @@ function vaciarLocalStorage() {
 // Codigo del api de Mercado libre
 
 var uri =
-  "https://api.mercadolibre.com/sites/MCO/search?q=impresora%20de%20credenciales%20pvc";
+  "https://api.mercadolibre.com/sites/MLM/search?q=impresora%20de%20credenciales%20pvc";
 
 $(document).ready(function() {
   // Send an AJAX request
