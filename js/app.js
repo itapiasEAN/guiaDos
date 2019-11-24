@@ -52,7 +52,7 @@ function insertarCarrito(producto) {
         <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
     `;
   listaProductos.appendChild(row);
-  guardarProductoLocalStarage(producto);
+  // guardarProductoLocalStarage(producto);
 }
 // Elimina el producto del carrito en el dom
 function eliminarProducto(e) {
@@ -147,3 +147,39 @@ function eliminarProductoLocalStorage(producto) {
 function vaciarLocalStorage() {
   localStorage.clear();
 }
+
+// Codigo del api de Mercado libre
+
+var uri =
+  "https://api.mercadolibre.com/sites/MCO/search?q=impresora%20de%20credenciales%20pvc";
+
+$(document).ready(function() {
+  // Send an AJAX request
+
+  $.getJSON(uri).done(function(data) {
+    var d1 = document.getElementById("lista-productos");
+    const productosApi = data.results.map(productoApi => {
+      d1.insertAdjacentHTML(
+        "afterbegin",
+        `
+      <div class="card col-4" style="width: 18rem;">
+              <div class="card-body justify-content-center">
+              <img src="${productoApi.thumbnail}"  alt="${productoApi.title}" />
+                <h4 class="card-title">${productoApi.title}</h4>
+                
+                
+                <p class="precio">$ <span>${productoApi.price}</span></p>
+                <a href="#contacto" class="btn btn-primary">Contactanos</a>
+                <a
+                  href="#"
+                  class="btn btn-secondary agregar-carrito"
+                  data-id="${productoApi.id}"
+                  >Agregar al carrito</a
+                >
+              </div>
+      </div>
+      `
+      );
+    });
+  });
+});
